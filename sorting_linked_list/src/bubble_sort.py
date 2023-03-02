@@ -3,11 +3,19 @@ def bubbleSort(head):
 
     if not head or not head.next:
         return head
-    
-    nn = head.next
-    if head.val > nn.val:
-        head.next = None
-        nn.next = head
-        head = nn
+
+    isSorted = False
+    while(not isSorted):
+        isSorted = True
+        n = head
+        while(n.next):
+            nn = n.next
+            if n.val > nn.val:
+                isSorted = False
+
+                n.val, nn.val = nn.val, n.val
+            n = nn
+        if isSorted:
+            break
 
     return head
