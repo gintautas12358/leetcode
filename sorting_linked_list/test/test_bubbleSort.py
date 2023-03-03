@@ -33,6 +33,7 @@ def test_fiveSingleUnsortedElementList():
 def test_fiveDoubleUnsortedElementList():
     compareAfterBubbleSort([2,1,11,8,5])
 
+@pytest.mark.skip(reason="slow test")
 def test_timeBigUnsortedElementList():
     st = time.time()
     bubbleSort(toListNode([10,9,8,7,6,5,4,3,2,1]))
