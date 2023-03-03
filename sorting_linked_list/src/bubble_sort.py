@@ -12,8 +12,8 @@ def bubbleSort(head):
             nn = n.next
             if n.val > nn.val:
                 isSorted = False
-
                 n.val, nn.val = nn.val, n.val
+                
             n = nn
         if isSorted:
             break
