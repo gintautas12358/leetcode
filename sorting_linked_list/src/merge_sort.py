@@ -67,10 +67,7 @@ def nmerge(left, right):
 
     return result
 
-# def mergeSort(head):
 def mergeSort(head, size):
-
-    # size = sizeOfListNode(head)
     # print(size, head)
 
     if (size <= 1):
