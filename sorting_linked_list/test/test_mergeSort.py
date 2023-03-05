@@ -31,19 +31,15 @@ def test_emptyList():
 def test_oneElementList():
     compareAfterMergeSort([1])
 
-# @pytest.mark.skip(reason="slow test")
 def test_twoSortedElementList():
     compareAfterMergeSort([1,2])
 
-# @pytest.mark.skip(reason="slow test")
 def test_twoUnsortedElementList():
     compareAfterMergeSort([2,1])
 
-# @pytest.mark.skip(reason="slow test")
 def test_fourUnsortedElementList():
     compareAfterMergeSort([2,1,3,4])
 
-# @pytest.mark.skip(reason="slow test")
 def test_ManyUnsortedElementList():
     compareAfterMergeSort([5,11,100,47,23,84,124,154,4,8,3,7,13,15])
 
@@ -54,7 +50,7 @@ def test_sizeOfFullList():
     compareSize([1,2,3,4,5,6,7])
 
 # @pytest.mark.skip(reason="slow test")
-def test_timeBigUnsortedElementList():
+def test_logorithmicTimeComplexity():
     bl = [10,9,8,7,6,5,4,3,2,1]
     base_size = len(bl)
     st = time.time()
