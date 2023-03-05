@@ -6,12 +6,20 @@ import sys
 sys.path.append("..")
 
 from src.ListNode import toListNode, ln2List, ListNode
-from src.merge_sort import mergeSort, sizeOfListNode
+from src.merge_sort import mergeSort
 
 def compareAfterMergeSort(l):
     size = len(l)
     head = mergeSort(toListNode(l), size)
     assert ln2List(head) == sorted(l)
+
+def sizeOfListNode(head):
+    count = 0
+    n = head
+    while(n):
+        count += 1
+        n = n.next
+    return count
 
 def compareSize(l):
     s = sizeOfListNode(toListNode(l))
@@ -23,15 +31,19 @@ def test_emptyList():
 def test_oneElementList():
     compareAfterMergeSort([1])
 
+# @pytest.mark.skip(reason="slow test")
 def test_twoSortedElementList():
     compareAfterMergeSort([1,2])
 
+# @pytest.mark.skip(reason="slow test")
 def test_twoUnsortedElementList():
     compareAfterMergeSort([2,1])
 
+# @pytest.mark.skip(reason="slow test")
 def test_fourUnsortedElementList():
     compareAfterMergeSort([2,1,3,4])
 
+# @pytest.mark.skip(reason="slow test")
 def test_ManyUnsortedElementList():
     compareAfterMergeSort([5,11,100,47,23,84,124,154,4,8,3,7,13,15])
 

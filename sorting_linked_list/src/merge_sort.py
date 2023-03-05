@@ -1,80 +1,53 @@
 
 from .ListNode import toListNode, ln2List, ListNode
 
-def sizeOfListNode(head):
-    count = 0
-    n = head
-    while(n):
-        count += 1
-        n = n.next
-    return count
-
-def lastListNode(head):
-    n = head
-    while(n.next):
-        n = n.next
-    return n
-
-def merge(left, right):
-    n = left
-    while(n.next):
-        n = n.next
-
-    n.next = right
-    return left
-
+# 1 complexity
 def popFront(head):
     nn = head.next
     n = head
     n.next = None
     return n, nn
 
+# 1 complexity
 def append(head, n):
     if head is None:
         head = n
     else: 
-        lastListNode(head).next = n
+        head.next = n
 
-    return head
+    return n
 
-def nmerge(left, right):
-    # print(left, right)
-    result = None
+def merge(left, right):
+    result_last = None
+    result = result_last
     n = None
-    while sizeOfListNode(left) > 0 and sizeOfListNode(right) > 0:
+    while left is not None and right is not None:
+
         if left.val > right.val:
             n, right = popFront(right)
         else:
             n, left = popFront(left)
 
-        result = append(result, n)
-        # print("loop append", result)
-        
-        
+        result_last = append(result_last, n)
+        if result is None:
+            result = result_last
+         
+    while left is not None:
 
-    while sizeOfListNode(left) > 0:
         n, left = popFront(left)
-        result = append(result, n)
-        # print("append", result)
+        result_last = append(result_last, n)
 
-    while sizeOfListNode(right) > 0:
+    while right is not None:
         n, right = popFront(right)
-        result = append(result, n)
-        # print("append", result)
-
-    
-        
+        result_last = append(result_last, n)
 
     return result
 
 def mergeSort(head, size):
-    # print(size, head)
-
     if (size <= 1):
         return head
     
     mid = int(size/2)
-    
 
     count = 0
     n = head
@@ -88,9 +61,7 @@ def mergeSort(head, size):
 
     left = mergeSort(left, mid)
     right = mergeSort(right, size-mid)
-
-
-    return nmerge(left, right)
+    return merge(left, right)
 
 if __name__ == "__main__":   
     a = [2,1,5,4]
