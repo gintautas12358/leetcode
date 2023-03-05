@@ -67,14 +67,16 @@ def nmerge(left, right):
 
     return result
 
-def mergeSort(head):
-    size = sizeOfListNode(head)
+# def mergeSort(head):
+def mergeSort(head, size):
+
+    # size = sizeOfListNode(head)
     # print(size, head)
 
     if (size <= 1):
         return head
     
-    mid = size/2
+    mid = int(size/2)
     
 
     count = 0
@@ -87,8 +89,8 @@ def mergeSort(head):
     n.next = None
     left = head
 
-    left = mergeSort(left)
-    right = mergeSort(right)
+    left = mergeSort(left, mid)
+    right = mergeSort(right, size-mid)
 
 
     return nmerge(left, right)
