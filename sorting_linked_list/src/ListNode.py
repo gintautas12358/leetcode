@@ -9,6 +9,11 @@ class ListNode:
 
     def __repr__(self) -> str:
         return f"{__class__.__name__} ({self.val}, {self.next})"
+    
+    def __eq__(self, other: object) -> bool:
+        sameVal = self.val == other.val
+        sameNext = self.next == other.next
+        return sameVal and sameNext
 
 def toListNode(l):
     if not l:
@@ -35,3 +40,4 @@ if __name__ == "__main__":
     l = [1,2,3,4,5]
     print(toListNode(l))
     print(ln2List(toListNode(l)))
+
